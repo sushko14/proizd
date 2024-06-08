@@ -1,76 +1,93 @@
 body {
-	margin: 0px;
-	padding: 0px;
-	background: #666060;
-	width: 100%;
-	border: 0px;
+  margin: 0px;
+  padding: 0px;
+  background: #666060;
+  width: 100%;
+  border: 0px;
 }
 
 .main {
-	display: block;
-	width: 100%;
-	height: 100%;
-	border: 0px solid black;
-	padding: 0px;
-	position: absolute;
-	background: white;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0px solid black;
+  padding: 0px;
+  position: absolute;
+  background: #021302;
+}
+
+.video-containter {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 }
 
 video {
-	margin-left: 0;
-	margin-right: 0;
-	padding: 0px;
-	width: 100%;
-	height: auto;
-	top: 0;
-	left: 0;
-	position: relative;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0px;
+  width: 100%;
+  height: auto;
+  left: 0;
+  position: relative;
+  /* border: 1px solid white; */
 }
 
+#time {
+  width: 13vw;
+  height: 4vw;
+  background: #010001;
+  color: #e8e7e8;
+  font-family: sans-serif;
+  font-weight: 400;
+  font-size: 3.8vw;
+  letter-spacing: 1px;
+  border: 0px solid black;
+  position: absolute;
+  left: 3vw;
+  top: 0.6999999999999993vw;
+}
 
 #month {
-    width: 150px;
-    height: 65px;
-    background: #F5F5F5;
-    color: #222222;
-    font-family: arial;
-    font-weight: 700;
-    font-size: 55px;
-    letter-spacing: 1px;
-    border: 0px solid black;
-    position: absolute;
-    left: 60px;
-    top: 1100px;
+  width: 15vw;
+  height: 6vw;
+  background: #424142;
+  color: #e8e7e8;
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size: 5.5vw;
+  letter-spacing: 1px;
+  border: 0px solid black;
+  position: absolute;
+  left: 7vw;
+  top: 128.5vw;
 }
 
 #clock {
-	width: 250px;
-    height: 65px;
-    background: #f5f5f5;
-    color: #8dc641;
-    font-family: arial;
-    font-weight: 600;
-    font-size: 55px;
-    border: 0px solid black;
-    position: absolute;
-    right: 60px;
-    top: 1100px;
+  width: 24vw;
+  height: 7vw;
+  background: #424142;
+  color: #518b32;
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size: 5.5vw;
+  letter-spacing: 1px;
+  border: 0px solid black;
+  position: absolute;
+  left: 69vw;
+  top: 128.5vw;
 }
 
 #strok {
-	width: 600px;
-    height: 60px;
-    text-align: center;
-    background: #ffffff;
-    font-family: arial;
-    font-weight: 500;
-    font-size: 44px;
-    position: absolute;
-    top: 1400px;
-    left: 190px;
-
+  width: 58vw;
+  height: 7vw;
+  color: #9a9a9a;
+  text-align: center;
+  background: #1f1e1f;
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 3.9vw;
+  position: absolute;
+  top: 157vw;
+  left: 21vw;
 }
-
-
-
-
