@@ -1,63 +1,46 @@
-
-
-
 <html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-	<title></title>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+    <meta name="theme-color" content="#3498db" />
+    <link rel="icon" sizes="192x192" href="icon.png" />
 
-	<link rel="stylesheet" type="text/css" href="style.css">
-	
-	
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
+    <script>
+      console.log(navigator.serviceWorker);
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("./service-worker.js")
+          .then(function (registration) {
+            console.log("Service Worker зареєстрований з успіхом:", registration);
+          })
+          .catch(function (error) {
+            console.log("Помилка при реєстрації Service Worker:", error);
+          });
+      }
+    </script>
+  </head>
 
-	<link rel="manifest" href="manifest.json">
-	<link rel="manifest" href="manifest.json">
+  <body>
+    <div class="main">
+      <span id="viewportSize" style="color: white; font-size: 150px"></span>
+      <span id="browserViewportSize" style="color: white; font-size: 150px"></span>
+      <div class="video-containter">
+        <video id="myVideo" muted autoplay height="" loop="loop">
+          <source src="main.mp4" type="video/mp4" />
+        </video>
+      </div>
 
+      <div id="time"></div>
 
-   <script>
-       if ('serviceWorker' in navigator) {
-           window.addEventListener('load', function() {
-               navigator.serviceWorker.register('/sw.js').then(function(registration) {
-                   // Registration was successful
-               console.log('ServiceWorker registration successful with scope: ', registration.scope);
-             }, function(err) {
-               // registration failed :(
-               console.log('ServiceWorker registration failed: ', err);
-             }).catch(function(err) {
-               console.log(err)
-             });
-           });
-         } else {
-           console.log('service worker is not supported');
-         }
-   </script>	
+      <div id="month"></div>
 
-   
+      <div id="clock"></div>
 
-</head>
+      <div id="strok"></div>
+    </div>
 
-<body>
-
-
-	<div class="main"> 
-		<video muted autoplay  height="" loop="loop">
-			<source src="main.mp4" type="video/mp4">
-		</video>
-
-		<div id="month">
-		</div>
-
-		<div id="clock">
-		</div>
-
-		<div id="strok">
-		</div>
-
-	</div>
-
-</body>
-	<script src="myscript.js"></script>
-	<script type="text/javascript" src="sw.js"></script>
-	<script type="text/javascript" src="sw-toolbox.js"></script>
+    <script src="myscript.js"></script>
+  </body>
 </html>
-	
