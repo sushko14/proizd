@@ -1,93 +1,72 @@
 body {
-  margin: 0px;
-  padding: 0px;
-  background: #666060;
-  width: 100%;
-  border: 0px;
+	margin: 0px;
+	padding: 0px;
+	background: #666060;
+	width: 100%;
+	border: 0px;
 }
 
 .main {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0px solid black;
-  padding: 0px;
-  position: absolute;
-  background: #021302;
-}
-
-.video-containter {
-  width: 100%;
-  height: auto;
-  overflow: hidden;
+	display: block;
+	width: 100%;
+	height: 100%;
+	border: 0px solid black;
+	padding: 0px;
+	position: absolute;
+	background: white;
 }
 
 video {
-  margin-left: 0;
-  margin-right: 0;
-  padding: 0px;
-  width: 100%;
-  height: auto;
-  left: 0;
-  position: relative;
-  /* border: 1px solid white; */
+	margin-left: 0;
+	margin-right: 0;
+	padding: 0px;
+	width: 100%;
+	height: auto;
+	top: 0;
+	left: 0;
+	position: relative;
 }
 
-#time {
-  width: 13vw;
-  height: 4vw;
-  background: #010001;
-  color: #e8e7e8;
-  font-family: sans-serif;
-  font-weight: 400;
-  font-size: 3.8vw;
-  letter-spacing: 1px;
-  border: 0px solid black;
-  position: absolute;
-  left: 3vw;
-  top: 0.6999999999999993vw;
-}
 
 #month {
-  width: 15vw;
-  height: 6vw;
-  background: #424142;
-  color: #e8e7e8;
-  font-family: sans-serif;
-  font-weight: 700;
-  font-size: 5.5vw;
-  letter-spacing: 1px;
-  border: 0px solid black;
-  position: absolute;
-  left: 7vw;
-  top: 128.5vw;
+	width: 125px;
+	height: 53px;
+	background: #4d4d4d;
+	color: #e8e8e8;
+	font-family: arial;
+	font-weight: 700;
+	font-size: 48px;
+	border: 0px solid black;
+	position: absolute;
+	left: 75px;
+	top: 1350px;
 }
 
 #clock {
-  width: 24vw;
-  height: 7vw;
-  background: #424142;
-  color: #518b32;
-  font-family: sans-serif;
-  font-weight: 700;
-  font-size: 5.5vw;
-  letter-spacing: 1px;
-  border: 0px solid black;
-  position: absolute;
-  left: 69vw;
-  top: 128.5vw;
+	width: 206px;
+	height: 56px;
+	background: #4d4d4d;
+	color: #e8e8e8;
+	font-family: arial;
+	font-weight: 600;
+	font-size: 48px;
+	border: 0px solid black;
+	position: absolute;
+	right: 69px;
+	top: 1343px;
 }
 
 #strok {
-  width: 58vw;
-  height: 5vw;
-  color: #9a9a9a;
-  text-align: center;
-  background: #1f1e1f;
-  font-family: sans-serif;
-  font-weight: 600;
-  font-size: 3.9vw;
-  position: absolute;
-  top: 157vw;
-  left: 21vw;
+	width: 600px;
+	height: 48px;
+	text-align: center;
+	background: #242424;
+	font-family: arial;
+	font-weight: 400;
+	font-size: 40;
+	position: absolute;
+	top: 1624px;
+	left: 186px;
+	color: #dfdfdf;
+
 }
