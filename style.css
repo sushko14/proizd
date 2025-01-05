@@ -31,7 +31,7 @@ video {
 #month {
 	width: 125px;
 	height: 53px;
-	background: #4d4d4d;
+	background: #444444;
 	color: #e8e8e8;
 	font-family: arial;
 	font-weight: 700;
@@ -45,7 +45,7 @@ video {
 #clock {
 	width: 206px;
 	height: 56px;
-	background: #4d4d4d;
+	background: #444444;
 	color: #e8e8e8;
 	font-family: arial;
 	font-weight: 600;
