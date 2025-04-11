@@ -1,15 +1,27 @@
+function getUkrainianMonth(monthNumber) {
+  const months = [
+      'січ.', 'лют.', 'бер.', 'квіт.', 'трав.', 'черв.',
+      'лип.', 'серп.', 'вер.', 'жовт.', 'лист.', 'груд.'
+  ];
+  return months[monthNumber];
+}
+
 function clock() {
-  let date = new Date(),
-    year = date.getFullYear(),
-    month = ((date.getMonth() + 1) < 10) ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1),
-    day = (date.getDate() < 10) ? '0' + date.getDate() : date.getDate(),
-    hours = (date.getHours() < 10) ? '0' + date.getHours() : date.getHours(),
-    minutes = (date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes(),
-    seconds = (date.getSeconds() < 10) ? '0' + date.getSeconds() : date.getSeconds();
-  // document.getElementById('time').innerHTML = hours + ':' + minutes;
-  document.getElementById('clock').innerHTML = hours + ':' + minutes + ':' + seconds;
-  document.getElementById('month').innerHTML = day + '.' + month;
-  document.getElementById('strok').innerHTML = day + '.' + month + '.' + year + ' - ' + day + '.' + month + '.' + year;
+  let date = new Date();
+  let targetTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1, 5, 0, 0);
+  let timeDiff = targetTime - date;
+  
+  let remainingHours = Math.floor(timeDiff / (1000 * 60 * 60));
+  let remainingMinutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+  let remainingSeconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+  remainingHours = (remainingHours < 10) ? '0' + remainingHours : remainingHours;
+  remainingMinutes = (remainingMinutes < 10) ? '0' + remainingMinutes : remainingMinutes;
+  remainingSeconds = (remainingSeconds < 10) ? '0' + remainingSeconds : remainingSeconds;
+
+  document.getElementById('clock').innerHTML = remainingHours + ':' + remainingMinutes + ':' + remainingSeconds;
+  document.getElementById('month').innerHTML = date.getDate() + ' ' + getUkrainianMonth(date.getMonth()) + ' ' + date.getFullYear() + ' р.';
+  document.getElementById('strok').innerHTML = date.getDate() + '.' + (date.getMonth() + 1) + '.' + date.getFullYear() + ' - ' + date.getDate() + '.' + (date.getMonth() + 1) + '.' + date.getFullYear();
 }
 setInterval(clock, 1000);
 clock();
