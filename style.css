@@ -15,9 +15,11 @@ body {
 	position: absolute;
 	background: white;
 	background-image: url('img1.jpg');
-	background-size: 100% 100%;
-	background-position: 0 56px;
+	background-size: cover;
+	background-position: center;
+	clip-path: polygon(0 112px, 100% 112px, 100% 100%, 0 100%);
 }
+
 
 video {
 	margin-left: 0;
