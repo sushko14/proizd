@@ -1,65 +1,43 @@
-// Должно быть true в production
-var doCache = true;
+// Мінімальний service worker для PWA
+const CACHE_NAME = 'my-pwa-cache-v1';
+const urlsToCache = [
+  '/',
+  'index.html',
+  'style.css',
+  'manifest.json',
+  'myscript.js',
+  'service-worker.js',
+  'icon.png',
+  // Додай інші файли, які реально існують у проєкті
+];
 
-// Имя кэша
-var CACHE_NAME = 'my-pwa-cache-v2';
-
-// Очищает старый кэш
-self.addEventListener('activate', event => {
-   const cacheWhitelist = [CACHE_NAME];
-   event.waitUntil(
-       caches.keys()
-           .then(keyList =>
-               Promise.all(keyList.map(key => {
-                   if (!cacheWhitelist.includes(key)) {
-                       console.log('Deleting cache: ' + key)
-                       return caches.delete(key);
-                   }
-               }))
-           )
-   );
-});
-
-// 'install' вызывается, как только пользователь впервые открывает PWA 
 self.addEventListener('install', function(event) {
-   if (doCache) {
-       event.waitUntil(
-           caches.open(CACHE_NAME)
-               .then(function(cache) {
-                   // Получаем данные из манифеста (они кэшируются)
-                   fetch('/static/reader/manifest.json')
-                       .then(response => {
-                           response.json()
-                       })
-                       .then(assets => {
-                       // Открываем и кэшируем нужные страницы и файлы
-                           const urlsToCache = [
-                               '/app/',
-                               'main.mp4',
-                               'index.html',
-                               'style.css',
-                               'manifest.json',
-                               'myscript.js',
-                               'service-worker.js',
-                               'sw-toolbox.js',
-                               'sw.js',
-                               '/static/core/logo.svg*',
-                           ]
-                           cache.addAll(urlsToCache)
-                           console.log('cached');
-                       })
-               })
-       );
-   }
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        return cache.addAll(urlsToCache);
+      })
+  );
 });
 
-// Когда приложение запущено, сервис-воркер перехватывает запросы и отвечает на них данными из кэша, если они есть
+self.addEventListener('activate', function(event) {
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.filter(function(cacheName) {
+          return cacheName !== CACHE_NAME;
+        }).map(function(cacheName) {
+          return caches.delete(cacheName);
+        })
+      );
+    })
+  );
+});
+
 self.addEventListener('fetch', function(event) {
-   if (doCache) {
-       event.respondWith(
-           caches.match(event.request).then(function(response) {
-               return response || fetch(event.request);
-           })
-       );
-   }
-               
+  event.respondWith(
+    caches.match(event.request).then(function(response) {
+      return response || fetch(event.request);
+    })
+  );
+});

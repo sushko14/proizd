@@ -16,8 +16,7 @@ body {
 	background: white;
 	background-image: url('img1.jpg');
 	background-size: cover;
-	background-position: center;
-	clip-path: polygon(0 112px, 100% 112px, 100% 100%, 0 100%);
+	
 }
 
 
